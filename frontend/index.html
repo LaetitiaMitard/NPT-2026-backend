@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hack le Serveur</title>
+  <style>
+    body { font-family: Arial; background: #222; color: #fff; text-align: center; padding: 50px; }
+    button { padding: 10px 20px; margin: 10px; font-size: 16px; }
+    #message { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Hack le Serveur</h1>
+  <p>Choisis un niveau :</p>
+  <button onclick="loadLevel('level1')">Niveau 1</button>
+  <button onclick="loadLevel('level2')">Niveau 2</button>
+  <button onclick="loadLevel('level3')">Niveau 3</button>
+  <button onclick="loadLevel('level4')">Niveau 4</button>
+
+  <div id="message"></div>
+
+  <script>
+    function loadLevel(level) {
+      let url = `http://localhost:3000/${level}`;
+      if(level === 'level2') {
+        const pass = prompt('Entre un mot de passe:');
+        url += `?pass=${pass}`;
+      }
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('message').innerText = data.message;
+        });
+    }
+  </script>
+</body>
+</html>
