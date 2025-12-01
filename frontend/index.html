@@ -23,8 +23,9 @@
     function loadLevel(level) {
       let url = `http://localhost:3000/${level}`;
       if(level === 'level2') {
-        const pass = prompt('Entre un mot de passe:');
-        url += `?pass=${pass}`;
+        // Affiche le nom d'utilisateur en clair dans la popup
+        const pass = prompt('Nom d\'utilisateur: guerriere\nEntre le mot de passe:');
+        url += `?name=guerriere&pass=${pass}`;
       }
       fetch(url)
         .then(response => response.json())

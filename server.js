@@ -31,7 +31,8 @@ app.get('/level2', (req, res) => {
   try {
     users = JSON.parse(fs.readFileSync(__dirname + '/users.json', 'utf8'));
   } catch (err) {
-    return res.status(500).json({ message: "Erreur de lecture du fichier users.json." });
+    console.log(err);
+    return res.status(500).json({ message: "Erreur de lecture du fichier users.json.", error: err.message });
   }
   const user = users.find(u => u.name === userName);
   if (user && user.password === userPass) {

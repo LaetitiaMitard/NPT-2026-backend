@@ -29,7 +29,6 @@
   { "name": "bruno", "password": "vague" },
   { "name": "celine", "password": "tornade" },
   { "name": "damien", "password": "grotte" },
-  { "name": "elodie", "password": "falaise" },
-
+  { "name": "elodie", "password": "falaise" }
 ]
 
