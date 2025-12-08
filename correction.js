@@ -1,30 +1,13 @@
-const express = require('express');
-const path = require('path');
-const cors = require('cors');
-const users = require('./users.json');
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.listen(PORT, () => {
-    console.log(`🚀 Serveur démarré et écoutant sur http://localhost:${PORT}`);
-    console.log(`Ouvrez http://localhost:${PORT} dans votre navigateur pour l'interface.`);
-});
-
-
 app.post('/api/login', (req, res) => {
-
     // EXERCICE N°1
     // Afficher le mot de passe dans la console
     const {nom, mdp} = req.body;
-    console.log("nom = " + nom);
+    console.log("Nom envoyé par le client = " + nom);
+    console.log("Mot de passe envoyé par le client = " + mdp);
 
     // EXERCICE N°2
     // Trouver la méthode pour formater du texte en minuscules via la doc https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String
-    const user = users.find(u => u.nom);
+    const user = users.find(u => u.nom.toLowerCase());
 
     if (!user) {
         return res.status(401).json({success: false, message: 'Identifiant incorrect.'});
@@ -34,7 +17,9 @@ app.post('/api/login', (req, res) => {
 
     // EXERCICE N°3
     // Ajouter la vérification du mot de passe à l'authentification
-
+    if (user.mdp !== mdp) {
+        return res.status(401).json({success: false, message: 'Mot de passe incorrect.'});
+    }
 
     // EXERCICE N°4
     // Ajouter un message d'erreur dans la méthode
@@ -44,11 +29,11 @@ app.post('/api/login', (req, res) => {
     // Supprimer le mot de passe et ajouter l'âge dans les données envoyées au client
     const donneesUtilisateur = {
         id: user.id,
-        mdp: user.mdp,
         nom: user.nom,
         prenom: user.prenom,
         ddn: user.ddn,
-        avatar: user.avatar
+        avatar: user.avatar,
+        age: age
     };
 
     res.json({success: true, message: 'Connexion réussie', user: donneesUtilisateur});
@@ -78,6 +63,7 @@ const calculerAge = (ddn) => {
         }
         return age;
     } catch (e) {
+        console.error("Erreur de calcul de l'âge:", e);
         return null;
     }
 };
