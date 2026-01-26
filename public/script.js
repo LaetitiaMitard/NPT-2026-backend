@@ -86,4 +86,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // GESTION DE LA DÉCONNEXION
     // ==========================================
     logoutButton.addEventListener('click', showLogin);
+
 });

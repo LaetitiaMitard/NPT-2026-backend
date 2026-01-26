@@ -9,6 +9,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Servir le README.md pour le front
+app.get('/README.md', (req, res) => {
+    res.sendFile(path.join(__dirname, 'README.md'));
+});
+
 app.listen(PORT, () => {
     console.log(`🚀 Serveur démarré et écoutant sur http://localhost:${PORT}`);
     console.log(`Ouvrez http://localhost:${PORT} dans votre navigateur pour l'interface.`);
