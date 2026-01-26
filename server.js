@@ -29,13 +29,13 @@ app.post('/api/login', (req, res) => {
 
     // EXERCICE N°2
     // Trouver la méthode pour formater du texte en minuscules via la doc https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String
-    const user = users.find(u => u.nom);
+    const user = users.find(u => u.nom == nom);
 
     if (!user) {
         return res.status(401).json({success: false, message: 'Identifiant incorrect.'});
     }
 
-    console.log("Utilisateur trouvé : " + user);
+    console.log("Utilisateur trouvé : " + user.nom);
 
     // EXERCICE N°3
     // Ajouter la vérification du mot de passe à l'authentification
