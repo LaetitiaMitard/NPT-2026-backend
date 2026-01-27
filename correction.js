@@ -6,26 +6,18 @@ app.post('/api/login', (req, res) => {
     console.log("Mot de passe envoyé par le client = " + mdp);
 
     // EXERCICE N°2
-    // Trouver la méthode pour formater du texte en minuscules via la doc https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String
-    const user = users.find(u => u.nom.toLowerCase());
+    // Ajouter la vérification du mot de passe à l'authentification
+    const user = users.find(u => u.nom === nom && u.mdp === mdp);
 
     if (!user) {
-        return res.status(401).json({success: false, message: 'Identifiant incorrect.'});
+        return res.status(401).json({success: false, message: 'Identifiant ou mot de passe incorrect.'});
     }
-
-    console.log("Utilisateur trouvé : " + user);
 
     // EXERCICE N°3
-    // Ajouter la vérification du mot de passe à l'authentification
-    if (user.mdp !== mdp) {
-        return res.status(401).json({success: false, message: 'Mot de passe incorrect.'});
-    }
-
-    // EXERCICE N°4
     // Ajouter un message d'erreur dans la méthode
     const age = calculerAge(user.ddn);
 
-    // EXERCICE N°5
+    // EXERCICE N°4
     // Supprimer le mot de passe et ajouter l'âge dans les données envoyées au client
     const donneesUtilisateur = {
         id: user.id,
@@ -37,6 +29,11 @@ app.post('/api/login', (req, res) => {
     };
 
     res.json({success: true, message: 'Connexion réussie', user: donneesUtilisateur});
+
+    // EXERCICE N°5
+    // Trouver la méthode pour formater du texte en minuscules via la doc https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String
+
+    console.log("donneesUtilisateur = " + donneesUtilisateur);
 });
 
 

@@ -109,43 +109,66 @@
     <!-- Colonne droite: README "Initiation au coding" -->
     <aside id="readme-panel" class="bg-white p-6 rounded-xl shadow-xl hidden md:block">
         <div id="readme-content" class="prose max-w-none text-sm">
-            <h1 class="text-4xl md:text-5xl font-extrabold mt-6 underline decoration-2 underline-offset-4 decoration-indigo-600">Initiation au coding</h1>
-            <p class="mt-2">Le but de l'exercice est de modifier le code existant afin d'y ajouter de nouvelles fonctionnalités.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-6 underline decoration-2 underline-offset-4 decoration-indigo-600">
+                Initiation au coding</h1>
+            <p class="mt-2">Le but de l'exercice est de modifier le code existant afin d'y ajouter de nouvelles
+                fonctionnalités.</p>
             <h3 class="text-lg font-semibold mt-4">Exercice n°1 : Afficher le mot de passe dans la console</h3>
-            <p class="mt-2"><em>Il est possible d'afficher des informations côté client dans un outil qu'on appelle la console, grâce à des méthodes comme console.log(), console.info(), console.error(), etc.</em>  </p>
-            <p class="mt-2"><em>Pour observer les log de la console d'un serveur on passe par le terminal dans lequel on a lancé ce dernier</em></p>
+            <p class="mt-2"><em>Il est possible d'afficher des informations côté client dans un outil qu'on appelle la
+                console, grâce à des méthodes comme console.log(), console.info(), console.error(), etc.</em></p>
+            <p class="mt-2"><em>Pour observer les logs de la console d'un serveur, on passe par le terminal dans lequel
+                on a lancé ce dernier</em></p>
             <img src="img_1.png" alt="Console serveur" class="mt-2 rounded-lg shadow-md">
 
-            <p class="mt-2"><strong>&gt; Consigne</strong>  </p>
-            <p class="mt-2">Se baser sur le code existant pour afficher dans la console le mot de passe envoyé par le client.</p>
-            <h3 class="text-lg font-semibold mt-4">Exercice n°2 : Trouver la méthode permettant de formatter du texte en minuscules</h3>
-            <p class="mt-2">
-                <em>Il existe une multitude de méthodes " prêtes à l'emploi " qui permettent de transformer les données utilisées par l'application.</em>
-                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" class="text-indigo-600 underline">Voici la documentation officielle de JavaScript</a>
+            <p class="mt-2"><strong>&gt; Consigne</strong></p>
+            <p class="mt-2">En utilisant la documentation fournie, trouver la méthode qui permet de transformer du texte
+                afin de l'écrire tout en minuscules, puis l'appliquer au nom de l'utilisateur avant qu'il ne soit envoyé
+                vers la base de données pour vérification de concordance.</p>
+
+            <p class="mt-2"><strong>&gt; Consigne</strong></p>
+            <p class="mt-2">Se baser sur le code existant pour afficher dans la console le mot de passe envoyé par le
+                client.</p>
+
+            <h3 class="text-lg font-semibold mt-4">Exercice n°2 : Ajouter la vérification du mot de passe à
+                l'authentification</h3>
+            <p class="mt-2"><em>Lors de l'authentification par nom et mot de passe, actuellement seul le nom est
+                vérifié.</em></p>
+
+            <p class="mt-2"><strong>&gt; Consigne</strong></p>
+            <p class="mt-2">Se baser sur le code existant pour mettre en place la vérification du mot de passe
+                également.</p>
+
+            <h3 class="text-lg font-semibold mt-4">Exercice n°3 : Ajouter un message d'erreur dans la méthode</h3>
+            <p class="mt-2"><em>Dans la méthode calculerAge(), aucune information n'est retournée par le serveur en cas
+                d'erreur.</em></p>
+
+            <p class="mt-2"><strong>&gt; Consigne</strong></p>
+            <p class="mt-2">Ajouter un message d'erreur permettant d'informer le client de la nature de l'erreur
+                rencontrée.</p>
+
+            <h3 class="text-lg font-semibold mt-4">Exercice n°4 : Supprimer le mot de passe et ajouter l'âge dans les
+                données envoyées au client</h3>
+            <p class="mt-2"><em>Une fois la base de données interrogée et la concordance établie entre le nom et le mot
+                de passe reçus, la base de données renvoie les informations de l'utilisateur vers le client pour les
+                afficher en repassant par l'intermédiaire du serveur : c'est la variable " donneesUtilisateur ".</em>
             </p>
+            <p class="mt-2"><em>Pour sécuriser l'application, le mot de passe ne doit pas être retourné dans
+                donneesUtilisateur.</em></p>
+            <p class="mt-2"><em>Et le client a besoin de l'âge de l'utilisateur afin de pouvoir l'afficher sur le
+                profil.</em></p>
 
-            <p class="mt-2"><strong>&gt; Consigne</strong>  </p>
-            <p class="mt-2">En utilisant la documentation fournie, trouver la méthode qui permet de transformer du texte afin de l'écrire tout en minuscules, puis l'appliquer au nom de l'utilisateur avant qu'il ne soit envoyé vers la base de données pour vérification de concordance.</p>
+            <p class="mt-2"><strong>&gt; Consigne</strong></p>
+            <p class="mt-2">En se basant sur le code existant et en utilisant la méthode <strong>calculerAge</strong>,
+                modifier la variable <strong>donneesUtilisateur</strong> pour qu'elle réponde à ces deux exigences.</p>
 
-            <h3 class="text-lg font-semibold mt-4">Exercice n°3 : Ajouter la vérification du mot de passe à l'authentification</h3>
-            <p class="mt-2"><em>Lors de l'authentification par nom et mot de passe, actuellement seul le nom est vérifié.</em>  </p>
-
-            <p class="mt-2"><strong>&gt; Consigne</strong>  </p>
-            <p class="mt-2">Se baser sur le code existant pour mettre en place la vérification du mot de passe également.</p>
-
-            <h3 class="text-lg font-semibold mt-4">Exercice n°4 : Ajouter un message d'erreur dans la méthode</h3>
-            <p class="mt-2"><em>Dans la méthode calculerAge(), aucune information n'est retournée par le serveur en cas d'erreur.</em>  </p>
-
-            <p class="mt-2"><strong>&gt; Consigne</strong>  </p>
-            <p class="mt-2">Ajouter un message d'erreur permettant d'informer le client de la nature de l'erreur rencontrée.</p>
-
-            <h3 class="text-lg font-semibold mt-4">Exercice n°5 : Supprimer le mot de passe et ajouter l'âge dans les données envoyées au client</h3>
-            <p class="mt-2"><em>Une fois la base de données interrogée et la concordance établie entre le nom et le mot de passe reçus, la base de données renvoie les informations de l'utilisateur vers le client pour les afficher en repassant par l'intermédiaire du serveur : c'est la variable " donneesUtilisateur ".</em>  </p>
-            <p class="mt-2"><em>Pour sécuriser l'application, le mot de passe ne doit pas retourné dans donneesUtilisateur.</em></p>
-            <p class="mt-2"><em>Et le client a besoin de l'âge de l'utilisateur afin de pouvoir l'afficher sur le profil.</em>  </p>
-
-            <p class="mt-2"><strong>&gt; Consigne</strong>  </p>
-            <p class="mt-2">En se basant sur le code existant et en utilisant la méthode <strong>calculerAge</strong>, modifier la variable <strong>donneesUtilisateur</strong> pour qu'elle réponde à ces deux exigences.</p>
+            <h3 class="text-lg font-semibold mt-4">Exercice n°5 : Trouver les méthodes permettant de formatter le texte
+                dans console.log() selon les consignes suivantes</h3>
+            <p class="mt-2">
+                <em>Il existe une multitude de méthodes " prêtes à l'emploi " qui permettent de transformer les données
+                    utilisées par l'application.</em>
+                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String"
+                   target="_blank" class="text-indigo-600 underline">Voici la documentation officielle de JavaScript</a>
+            </p>
         </div>
     </aside>
 </div>
